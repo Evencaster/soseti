@@ -1,7 +1,9 @@
-const { serialize } = require('../http/response-serializer')
+const { serialize } = require('../http')
 
 const optionsHandler = (req, socket) => {
-    const headers = {}
+    const headers = {
+        Allow: "OPTIONS, GET, POST"
+    }
     socket.write(serialize(200, headers, ''))
 }
 
